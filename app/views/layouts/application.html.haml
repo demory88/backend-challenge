@@ -10,12 +10,10 @@
     = csrf_meta_tags
     = yield(:head)
   %body
-    %header
-      = render 'layouts/navigation' unless @disable_nav
-    %main{role: "main"}
-      .container-fluid
-        = render 'layouts/messages'
-        = yield
+    = render 'layouts/navigation' unless @disable_nav
+    %main.container{role: "main"}
+      = render 'layouts/messages'
+      = yield
     -# %footer.footer.main{class: ("navbar-fixed-bottom" if user_signed_in?)}
     -#   = render 'layouts/footer'
     -#   = yield(:javascripts)
