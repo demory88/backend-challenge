@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
+    %title= content_for?(:title) ? yield(:title) : "Backend Challenge"
+    %meta{content: "#{content_for?(:description) ? yield(:description) : "Backend Challenge"}", name: "description"}
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = csrf_meta_tags
+    = yield(:head)
+  %body
+    %header
+      = render 'layouts/navigation' unless @disable_nav
+    %main{role: "main"}
+      .container-fluid
+        = render 'layouts/messages'
+        = yield
+    -# %footer.footer.main{class: ("navbar-fixed-bottom" if user_signed_in?)}
+    -#   = render 'layouts/footer'
+    -#   = yield(:javascripts)
+    -# #loading-overlay.hide
+    -#   %i.fa.fa-spinner.fa-pulse.fa-5x.fa-fw
