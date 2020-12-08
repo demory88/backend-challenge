@@ -10,12 +10,7 @@
     = csrf_meta_tags
     = yield(:head)
   %body
-    = render 'layouts/navigation' unless @disable_nav
+    = render 'layouts/navigation'
     %main.container{role: "main"}
       = render 'layouts/messages'
       = yield
-    -# %footer.footer.main{class: ("navbar-fixed-bottom" if user_signed_in?)}
-    -#   = render 'layouts/footer'
-    -#   = yield(:javascripts)
-    -# #loading-overlay.hide
-    -#   %i.fa.fa-spinner.fa-pulse.fa-5x.fa-fw
