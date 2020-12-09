@@ -2,8 +2,8 @@
 
 ### Leftover To-Dos
 
-*Needs to have the connection function made recursive for extensibility
-*Needs a test written for connections to ensure consistency
+* Needs to have the connection function made recursive for extensibility
+* Needs a test written for connections to ensure consistency
 
 ### Overview
 
