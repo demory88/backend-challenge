@@ -8,8 +8,28 @@
     -if @friends.present?
       %p
         -@friends.each do |friend|
-          =link_to user_path(friend.id), friend.name
+          =link_to friend.name, user_path(friend.id)
+          %br
     -else
       %p You don't have any friends yet!
+    -if current_user.id == @user.id
+      =form_tag({controller: "users", action: 'make_friends', method: "post"}) do
+        -# This needs a reload or render coming in from a link - might be a turbolinks issue
+        =select_tag :friend_list, options_for_select(@all_users.map{|user| [user.name, user.id]}), {include_blank: 'Add some friends!', class: 'form-control select2', multiple: true}
+        =hidden_field_tag :user, params[:user], value: @user.id
+        =submit_tag 'Submit', class: 'btn btn-primary float-right mt-1'
   .col-md-12
-    
+    %hr
+  -if current_user.id == @user.id
+    .col-md-12
+      %h1 Find Experts
+      =form_tag user_path(current_user.id), method: 'get', class: 'form' do
+        .row
+          .form-group
+            =label_tag "Topic"
+            =text_field_tag :search, params[:search], class: 'form-control'
+          .col-md-12.mt-2
+            =hidden_field_tag :search, params[:search], value: true
+            =submit_tag "Search", :name => nil, class: 'btn btn-primary'
+            =link_to user_path(current_user.id), class: 'btn btn-danger' do
+              %span Reset

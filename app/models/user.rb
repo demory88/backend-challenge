@@ -48,13 +48,13 @@ class User < ApplicationRecord
       end
     rescue Watir::Exception::UnknownObjectException, Timeout::Error
       # We're going to use a catchall to rescue and save what we got here because watir can be very error prone, especially when dealing with SPAs
-      user.tags = user.tags.uniq
+      user.tags.uniq
       user.tags = user.tags.reject { |t| t.to_s.empty? }
       # cleanup and save
       user.save
     end
 
-    user.tags = user.tags.uniq
+    user.tags.uniq
     user.tags = user.tags.reject { |t| t.to_s.empty? }
     # cleanup and save
     user.save

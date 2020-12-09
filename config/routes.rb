@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   root to: 'pages#index'
 
   resources :users
+  post 'make_friends', to: 'users#make_friends', :as => 'make_friends'
 end

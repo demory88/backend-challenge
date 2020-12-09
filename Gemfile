@@ -15,6 +15,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'watir'
+gem "select2-rails"
 
 group :development, :test do
   gem 'byebug', platform: :mri

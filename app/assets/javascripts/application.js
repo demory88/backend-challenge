@@ -13,9 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require select2
 //= require_tree .
 
 $(function(){
+  $(".select2").select2({
+    allowClear: true,
+    theme: "bootstrap"
+  });
+
   $('.shorten-me').on('blur', function(){
     var url = $('#user_url').val();
     var accessToken = "9ea9c53ac9c6ebdd2e2744aa3d237362d09f2405";
