@@ -23,13 +23,23 @@
   -if current_user.id == @user.id
     .col-md-12
       %h1 Find Experts
-      =form_tag user_path(current_user.id), method: 'get', class: 'form' do
+      =form_tag user_path(current_user.id), method: 'get', class: 'form ml-3' do
         .row
           .form-group
             =label_tag "Topic"
-            =text_field_tag :search, params[:search], class: 'form-control'
+            =text_field_tag :topic, params[:topic], class: 'form-control'
           .col-md-12.mt-2
             =hidden_field_tag :search, params[:search], value: true
             =submit_tag "Search", :name => nil, class: 'btn btn-primary'
             =link_to user_path(current_user.id), class: 'btn btn-danger' do
               %span Reset
+      -if @connections.present?
+        %hr
+        %h2 Here are some experts that match your search:
+        -@matches.each do |match|
+          %span= match.name
+        -@connections.each do |connection|
+          %h3
+            -connection.reverse.each do |sub|
+              =link_to sub.name, user_path(sub.id), class: "connection"
+            %span= "(\"#{@topic}\")"

@@ -18,6 +18,15 @@
 /* Custom bootstrap variables must be set or imported *before* bootstrap. */
  @import "bootstrap";
 
- main {
-   padding-top: 75px;
- }
+main {
+  padding-top: 75px;
+
+  .connection {
+    &:after {
+      content: "->";
+    }
+    &:last-of-type:after {
+      content: "";
+    }
+  }
+}
