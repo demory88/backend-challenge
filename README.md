@@ -1,5 +1,10 @@
 # EverlyWell Backend Challenge
 
+### Leftover To-Dos
+
+*Needs to have the connection function made recursive for extensibility
+*Needs a test written for connections to ensure consistency
+
 ### Overview
 
 Using Ruby on Rails, we'd like you to create a simple experts directory search tool. The tool can either be a full featured application or API only.
@@ -38,7 +43,7 @@ We encourage the use of any libraries for everything except the search functiona
 ### Things we like:
 
 * Well commented & well organized code
-* Quality over quantity (the code you write should be good) 
+* Quality over quantity (the code you write should be good)
 * Small, meaningful, commits
 * Tests!
 * Respect for the time limit - if you are in the midst of some work that you would like to finish, but have hit the 4 hour time limit, please split additional work into a separate branch, to be evaluated separately
