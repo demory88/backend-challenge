@@ -1,0 +1,15 @@
+.row
+  .col-md-6
+    %h2= @user.name
+    %h4= @user.email
+    %h4= link_to @user.short_url
+  .col-md-6
+    %h2 Friends
+    -if @friends.present?
+      %p
+        -@friends.each do |friend|
+          =link_to user_path(friend.id), friend.name
+    -else
+      %p You don't have any friends yet!
+  .col-md-12
+    

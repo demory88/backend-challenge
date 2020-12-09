@@ -16,22 +16,29 @@
 //= require_tree .
 
 $(function(){
-  $('#user-url').on('blur', function(){
-    var url = $('#user-url').val();
+  $('.shorten-me').on('blur', function(){
+    var url = $('#user_url').val();
+    var accessToken = "9ea9c53ac9c6ebdd2e2744aa3d237362d09f2405";
+    var params = {
+      "long_url" : url
+    };
 
     $.ajax({
-      type: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer 9ea9c53ac9c6ebdd2e2744aa3d237362d09f2405"
+      // This API is very finnicky, worth considering a replacement
+      url: "https://api-ssl.bitly.com/v4/shorten",
+      cache: false,
+      dataType: "json",
+      method: "POST",
+      contentType: "application/json",
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
       },
-      url: 'https://api-ssl.bitly.com/v4/shorten',
-      long_url: url,
-      domain: "bit.ly",
-      group_guid: "Free: demory88"
+      data: JSON.stringify(params)
     })
-    .done(function() {
+    .done(function(response) {
       console.log('done');
+      $('#user_short_url').val(response.link);
+      console.log($('#user_short_url').val());
     })
     .fail(function() {
       console.log('fail');

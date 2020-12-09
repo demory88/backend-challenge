@@ -1,0 +1,19 @@
+.row
+  .col-md-12
+    %h3 Users
+  .col-md-12
+    %table.table.table-striped
+      %thead
+        %tr
+          %td
+            %span Name
+          %td
+            %span Email
+          %td
+            %span URL
+          %td
+            %span Friends
+      %tbody
+        - @users.each do |user|
+          %tr
+            = render user

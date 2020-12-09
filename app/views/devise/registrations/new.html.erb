@@ -4,8 +4,19 @@
   <%= bootstrap_devise_error_messages! %>
 
   <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :website %>
+    <%= f.text_field :url, class: 'form-control shorten-me' %>
+    <%= f.hidden_field :short_url %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
+    <%= f.email_field :email, autocomplete: 'email', class: 'form-control' %>
   </div>
 
   <div class="form-group">
